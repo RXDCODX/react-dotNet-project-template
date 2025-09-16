@@ -37,6 +37,12 @@
       "description": "Включить .editorconfig файл",
       "datatype": "bool",
       "defaultValue": "true"
+    },
+    "IncludeHusky": {
+      "type": "parameter",
+      "description": "Включить Husky для pre-commit хуков с линтерами и преттиерами",
+      "datatype": "bool",
+      "defaultValue": "false"
     }
   },
   "sources": [
@@ -53,6 +59,10 @@
         {
           "condition": "(!IncludeEditorConfig)",
           "exclude": ["**/.editorconfig"]
+        },
+        {
+          "condition": "(!IncludeHusky)",
+          "exclude": ["**/.husky/**", "**/.huskyrc.json"]
         }
       ]
     }

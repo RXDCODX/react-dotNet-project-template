@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Запуск линтера без автоисправления
+yarn lint
+
+# Проверка форматирования кода
+yarn format:check

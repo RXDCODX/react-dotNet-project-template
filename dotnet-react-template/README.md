@@ -12,6 +12,7 @@
 - **React Router** для навигации между страницами
 - **Абсолютные пути** в TypeScript (@/components, @/services и т.д.)
 - **ESLint + Prettier** для качества кода
+- **Husky** для pre-commit хуков с линтерами и преттиерами без автоисправления (опционально)
 - **Yarn** как менеджер пакетов по умолчанию
 - **ESBuild проект** (.esproj) для React приложения
 - **EditorConfig** для единообразного форматирования кода
@@ -42,6 +43,7 @@ dotnet new dotnet-react -n MyProject
 - `--ReactPort` - Порт для React приложения (по умолчанию: 3000)
 - `--IncludeDocker` - Включить Docker файлы (по умолчанию: false)
 - `--IncludeEditorConfig` - Включить .editorconfig файл (по умолчанию: true)
+- `--IncludeHusky` - Включить Husky для pre-commit хуков с линтерами и преттиерами (по умолчанию: false)
 
 ### Примеры использования
 
@@ -63,6 +65,12 @@ dotnet new dotnet-react -n MyProject --IncludeEditorConfig false
 
 # Создать проект с Docker, но без .editorconfig
 dotnet new dotnet-react -n MyProject --IncludeDocker true --IncludeEditorConfig false
+
+# Создать проект с Husky для pre-commit хуков
+dotnet new dotnet-react -n MyProject --IncludeHusky true
+
+# Создать проект с Docker и Husky
+dotnet new dotnet-react -n MyProject --IncludeDocker true --IncludeHusky true
 ```
 
 **Примечание:** Имя проекта, указанное в параметре `-n`, будет использоваться для создания папок `Server` и `Client` в корне проекта.
@@ -151,6 +159,7 @@ MyProject/
 - SASS модули
 - Axios для HTTP запросов
 - Vitest для тестирования
+- Husky для Git хуков (опционально)
 
 ### DevOps
 
@@ -189,6 +198,9 @@ yarn lint             # Линтинг кода
 yarn lint:fix         # Автоисправление ошибок линтера
 yarn format           # Форматирование кода
 yarn format:check     # Проверка форматирования
+
+# Husky (если включен)
+yarn prepare          # Инициализация Husky хуков
 ```
 
 ## Удаление шаблона
