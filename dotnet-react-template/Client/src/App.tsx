@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import styles from './App.module.scss';
-import WeatherService from '@/services/WeatherService';
-import { WeatherForecast } from '@/types/WeatherForecast';
+import WeatherService from './services/WeatherService';
+import { WeatherForecast } from './types/WeatherForecast';
 
 const HomePage: React.FC = () => {
   const [weatherData, setWeatherData] = useState<WeatherForecast[]>([]);

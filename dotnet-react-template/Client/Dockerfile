@@ -2,21 +2,21 @@
 FROM node:18-alpine AS build
 WORKDIR /app
 
-# Копируем package.json и package-lock.json
-COPY package*.json ./
+# Копируем package.json и yarn.lock
+COPY package.json yarn.lock ./
 
 # Устанавливаем зависимости
-RUN npm ci --only=production
+RUN yarn install --frozen-lockfile
 
 # Копируем исходный код
 COPY . .
 
-# Собираем приложение
-RUN npm run build
+# Собираем приложение с Vite
+RUN yarn build
 
 # Используем nginx для раздачи статических файлов
 FROM nginx:alpine
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 
 # Копируем конфигурацию nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf

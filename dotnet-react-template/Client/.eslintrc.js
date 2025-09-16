@@ -32,6 +32,14 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
   },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      },
+    },
+  ],
   settings: {
     react: {
       version: 'detect',

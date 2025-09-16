@@ -7,6 +7,7 @@
 - **.NET 8 Web API** с настройками CORS для работы с React
 - **SpaYarp** для реверс проксирования запросов в development режиме
 - **React 19** с TypeScript для типобезопасности
+- **Vite** для быстрой разработки и сборки
 - **SASS модули** для изолированных стилей
 - **React Router** для навигации между страницами
 - **Абсолютные пути** в TypeScript (@/components, @/services и т.д.)
@@ -86,7 +87,7 @@ dotnet run
 ```bash
 cd Client
 yarn install
-yarn start
+yarn dev
 ```
 
 2. В новом терминале запустите .NET Web API:
@@ -146,8 +147,10 @@ MyProject/
 
 - React 19
 - TypeScript
+- Vite (сборщик и dev сервер)
 - SASS модули
 - Axios для HTTP запросов
+- Vitest для тестирования
 
 ### DevOps
 
@@ -172,17 +175,20 @@ MyProject/
 ### Полезные команды
 
 ```bash
-# Линтинг кода
-yarn lint
+# Разработка
+yarn dev              # Запуск dev сервера
+yarn build            # Сборка для production
+yarn preview          # Предварительный просмотр сборки
 
-# Автоисправление ошибок линтера
-yarn lint:fix
+# Тестирование
+yarn test             # Запуск тестов
+yarn test:ui          # Запуск тестов с UI
 
-# Форматирование кода
-yarn format
-
-# Проверка форматирования
-yarn format:check
+# Качество кода
+yarn lint             # Линтинг кода
+yarn lint:fix         # Автоисправление ошибок линтера
+yarn format           # Форматирование кода
+yarn format:check     # Проверка форматирования
 ```
 
 ## Удаление шаблона

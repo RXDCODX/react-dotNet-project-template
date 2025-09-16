@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { WeatherForecast } from '@/types/WeatherForecast';
+import { WeatherForecast } from '../types/WeatherForecast';
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:#{DotNetPort}#';
 
