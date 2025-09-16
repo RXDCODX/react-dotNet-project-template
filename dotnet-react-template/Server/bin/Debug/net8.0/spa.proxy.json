@@ -1,0 +1,9 @@
+{
+"SpaProxyServer": {
+"ClientUrl": "http://localhost:#{ReactPort}#",
+"LaunchCommand": "yarn dev",
+"WorkingDirectory": "D:\\VS\\template\\dotnet-react-template\\Server\\../Client",
+"MaxTimeoutInSeconds": "1200",
+"PublicPath": ""
+}
+}
