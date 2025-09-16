@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Template Author",
+  "classifications": ["Web", "API", "React", "SPA"],
+  "identity": "DotNetReactTemplate.ProjectTemplate",
+  "name": "ASP.NET Core Web API + React SPA",
+  "shortName": "dotnet-react",
+  "sourceName": "MyProject",
+  "preferNameDirectory": true,
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "symbols": {
+    "DotNetPort": {
+      "type": "parameter",
+      "description": "Порт для .NET Web API приложения",
+      "datatype": "int",
+      "defaultValue": "5000",
+      "replaces": "#{DotNetPort}#"
+    },
+    "ReactPort": {
+      "type": "parameter",
+      "description": "Порт для React приложения",
+      "datatype": "int",
+      "defaultValue": "3000",
+      "replaces": "#{ReactPort}#"
+    },
+    "IncludeDocker": {
+      "type": "parameter",
+      "description": "Включить Docker файлы",
+      "datatype": "bool",
+      "defaultValue": "false"
+    },
+    "IncludeEditorConfig": {
+      "type": "parameter",
+      "description": "Включить .editorconfig файл",
+      "datatype": "bool",
+      "defaultValue": "true"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "condition": "(!IncludeDocker)",
+          "exclude": [
+            "**/Dockerfile*",
+            "**/docker-compose*",
+            "**/.dockerignore"
+          ]
+        },
+        {
+          "condition": "(!IncludeEditorConfig)",
+          "exclude": ["**/.editorconfig"]
+        }
+      ]
+    }
+  ]
+}

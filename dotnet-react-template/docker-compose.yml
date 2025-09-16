@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  webapi:
+    build:
+      context: ./Server
+      dockerfile: Dockerfile
+    ports:
+      - "#{DotNetPort}#:#{DotNetPort}#"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:#{DotNetPort}#
+    networks:
+      - app-network
+
+  reactapp:
+    build:
+      context: ./Client
+      dockerfile: Dockerfile
+    ports:
+      - "#{ReactPort}#:#{ReactPort}#"
+    depends_on:
+      - webapi
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
